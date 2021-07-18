@@ -1,0 +1,9 @@
+LICENSE
+setup.py
+shawl-trie/__init__.py
+shawl-trie/cli.py
+shawl_trie.egg-info/PKG-INFO
+shawl_trie.egg-info/SOURCES.txt
+shawl_trie.egg-info/dependency_links.txt
+shawl_trie.egg-info/requires.txt
+shawl_trie.egg-info/top_level.txt
