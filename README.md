@@ -23,8 +23,8 @@ Run the following code in terminal (MacOS / Linux)
 $ python3.7 -m shawlTrie
 ```
 
-You will be guided on how to perform various functions from there.
-Eg.
+You will be guided on how to perform various functions from there.<br>
+For example:
 ```
 >> Enter task (add, search, autocomplete, delete, display): add
 
