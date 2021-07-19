@@ -7,9 +7,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.0.1'
-DESCRIPTION = 'Trie'
-LONG_DESCRIPTION = 'A package that allows to add, search, delete, autocomplete words in a trie.'
+VERSION = '0.0.2'
+DESCRIPTION = 'A package that allows you to add, search, delete, autocomplete and display words in a trie.'
 
 # Setting up
 setup(
@@ -18,8 +17,6 @@ setup(
     author="Haider Shawl",
     author_email="<haidershawl@gmail.com>",
     description=DESCRIPTION,
-    long_description_content_type="text/markdown",
-    long_description=long_description,
     packages=find_packages(),
     install_requires=['pymongo'],
     keywords=['python','trie','shawl-trie'],
