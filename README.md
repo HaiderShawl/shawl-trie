@@ -28,7 +28,7 @@ $ python3.7 -m shawlTrie
 
 #### Actions:
 - [add](#add)<br>
-- [search](/#search)<br>
+- [search](#search)<br>
 - [autocomplete](#autocomplete)<br>
 - [delete](#delete)<br>
 - [display](#display)<br>
