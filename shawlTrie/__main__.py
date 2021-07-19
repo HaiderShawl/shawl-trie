@@ -1,18 +1,15 @@
-from .cli import trie
-from .cli import createNode
-from pymongo import MongoClient
-
-client_db = MongoClient('mongodb+srv://user:user@cluster0.hmyig.mongodb.net/data?retryWrites=true&w=majority')
-db = client_db.data.trie
+from .cli import trieClass
 
 
+def main():
+	trie = trieClass()
 
-if __name__ == '__main__':
 	msg = input('Enter task (add, search, autocomplete, delete, display): ')
 
 	if msg == 'add':
 		text = input('Type word to add: ')
 		trie.add(text)
+		trie.save()
 		print('Word has been added successfully!')
 
 	elif msg == 'search':
@@ -26,6 +23,7 @@ if __name__ == '__main__':
 	elif msg == 'delete':
 		text = input('Type word to delete: ')
 		trie.delete(text)
+		trie.save()
 
 	elif msg == 'display':
 		trie.prefix=''
@@ -33,3 +31,7 @@ if __name__ == '__main__':
 
 	else:
 		print('Invalid task. Try Again')
+
+
+if __name__ == '__main__':
+	main()
