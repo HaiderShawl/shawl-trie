@@ -12,8 +12,8 @@ class trie:
 	def __init__(self):
 		self.root = db.find_one({ 'name':'trie' })['data']
 		# self.root = {'a': {'p': {'p': {'l': {'e': {'*': True}, 'i': {'c': {'a': {'t': {'i': {'o': {'n': {'*': True}}}}}}}, 'o': {'o': {'*':True}}}, '*': True}}, 'c': {'a': {'a': {'*': True}}}}, 'b': {'a': {'t': {'h': {'*': True}}}}}
+		self.children = []
 
-		
 	def add(self, text):
 		keys = [c for c in text]
 		length = len(keys)
@@ -98,57 +98,23 @@ class trie:
 			print('The provided word does not exist in the trie.')
 
 
-	def display(self, obj, prefix='') :
-		keys = obj.keys()
-		for key in keys:
-			if key != '*':
-				print(key, end=" ")
-				self.display(obj[key], prefix+'  ')
-			else: 
-				print("")
-				# prefix = prefix + " "
-				print(prefix, end="")
+	def display(self, obj, level=0) :
+		print(self.autocomplete(''))
 
-				
-				
+
+	def save(self) :
+		db.update_one({
+			'name': 'trie'
+		}, {
+			"$set": { 'data': trie.root }
+		})
+
+			
+
+	
 
 
 trie = trie()
-
-msg = input('Enter task (add, search, autocomplete, delete, display): ')
-
-if msg == 'add':
-	text = input('Type word to add: ')
-	trie.add(text)
-	print('Word has been added successfully!')
-
-elif msg == 'search':
-	text = input('Type word to search: ')
-	print(trie.search(text)[0])
-
-elif msg == 'autocomplete':
-	text = input('Type prefix to autocomplete: ')
-	print(trie.autocomplete(text))
-
-elif msg == 'delete':
-	text = input('Type word to delete: ')
-	trie.delete(text)
-
-elif msg == 'display':
-	trie.prefix=''
-	trie.display(trie.root)
-
-else:
-	print('Invalid task. Try Again')
-
-
-
-# db.update_one({
-# 	'name': 'trie'
-# }, {
-# 	"$set": { 'data': trie.root }
-# })
-
 
 if __name__ == '__main__':
 	msg = input('Enter task (add, search, autocomplete, delete, display): ')
@@ -156,6 +122,7 @@ if __name__ == '__main__':
 	if msg == 'add':
 		text = input('Type word to add: ')
 		trie.add(text)
+		trie.save()
 		print('Word has been added successfully!')
 
 	elif msg == 'search':
@@ -169,6 +136,7 @@ if __name__ == '__main__':
 	elif msg == 'delete':
 		text = input('Type word to delete: ')
 		trie.delete(text)
+		trie.save()
 
 	elif msg == 'display':
 		trie.prefix=''
