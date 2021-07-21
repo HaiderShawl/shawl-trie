@@ -4,7 +4,7 @@ A python package which allows you to add, delete, search, autocomplete and displ
 ### Requirements
 
 
-- Python 3.7
+- Python (>3.6)
 - Pymongo
 
 
@@ -12,7 +12,7 @@ A python package which allows you to add, delete, search, autocomplete and displ
 
 Run the following code in terminal (MacOS / Linux)
 ```  
-pip3.7 install shawlTrie 
+pip3 install shawlTrie 
 ```
 
 
@@ -20,7 +20,7 @@ pip3.7 install shawlTrie
 
 Run the following code in terminal (MacOS / Linux)
 ```
-$ python3.7 -m shawlTrie
+$ python3 -m shawlTrie
 
 >> Enter task (add, search, autocomplete, delete, display):
 
